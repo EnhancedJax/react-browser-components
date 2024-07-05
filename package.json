@@ -62,6 +62,7 @@
     "typescript": "^5.2.2",
     "vite": "^4.4.9",
     "vite-plugin-dts": "^3.5.3",
+    "vite-plugin-svgr": "^4.2.0",
     "vitest": "^0.34.4"
   },
   "peerDependencies": {

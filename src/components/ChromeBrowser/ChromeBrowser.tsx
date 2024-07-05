@@ -1,53 +1,43 @@
-// components/ChromeBrowser/ChromeBrowser.tsx
-import React, { MouseEventHandler } from "react";
-import styled from "styled-components";
-
-export type ChromeBrowserProps = {
-  text?: string;
-  primary?: boolean;
-  disabled?: boolean;
-  size?: "small" | "medium" | "large";
-  onClick?: MouseEventHandler<HTMLButtonElement>;
-};
-
-const StyledButton = styled.button<ChromeBrowserProps>`
-  border: 0;
-  line-height: 1;
-  font-size: 15px;
-  cursor: pointer;
-  font-weight: 700;
-  font-weight: bold;
-  border-radius: 10px;
-  display: inline-block;
-  color: ${(props) => (props.primary ? "#fff" : "#000")};
-  background-color: ${(props) => (props.primary ? "#FF5655" : "#f4c4c4")};
-  padding: ${(props) =>
-    props.size === "small"
-      ? "7px 25px 8px"
-      : props.size === "medium"
-        ? "9px 30px 11px"
-        : "14px 30px 16px"};
-`;
+import React from "react";
+import { ThemeProvider } from "styled-components";
+import { ChromeBrowserProps } from "./props";
+import {
+  BrowserContainer,
+  BrowserRow,
+  Dot,
+  DotRow,
+  IconsFlex,
+  SearchBar,
+  darkTheme,
+  lightTheme,
+} from "./styles";
 
 const ChromeBrowser: React.FC<ChromeBrowserProps> = ({
-  size,
-  primary,
-  disabled,
-  text,
-  onClick,
+  link = "https://example.com",
+  theme = "light",
+  type = "full",
+  shadow = false,
+  leftIcons = <img src="../../assets/arrowback.svg" width={24} height={24} />,
+  rightIcons = null,
+  children = null,
   ...props
 }) => {
   return (
-    <StyledButton
-      type="button"
-      onClick={onClick}
-      primary={primary}
-      disabled={disabled}
-      size={size}
-      {...props}
-    >
-      {text}
-    </StyledButton>
+    <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
+      <BrowserContainer {...props} shadow={shadow}>
+        <DotRow>
+          <Dot color="red" />
+          <Dot />
+          <Dot color="green" />
+        </DotRow>
+        <BrowserRow>
+          <IconsFlex>{leftIcons}</IconsFlex>
+          <SearchBar>{link}</SearchBar>
+          <IconsFlex>{rightIcons}</IconsFlex>
+        </BrowserRow>
+        {children}
+      </BrowserContainer>
+    </ThemeProvider>
   );
 };
 

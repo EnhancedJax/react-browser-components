@@ -1,12 +1,15 @@
 import React, { FC } from "react";
-import ChromeBrowser, { ChromeBrowserProps } from "../ChromeBrowser";
+import ChromeBrowser from "../ChromeBrowser";
+import { ChromeBrowserProps } from "../props";
 
 const Example: FC<ChromeBrowserProps> = ({
-  disabled = false,
-  onClick = () => {},
-  primary = true,
-  size = "small",
-  text = "ChromeBrowser",
+  link,
+  theme,
+  type,
+  shadow,
+  leftIcons,
+  rightIcons,
+  children,
 }) => {
   return (
     <div
@@ -18,12 +21,15 @@ const Example: FC<ChromeBrowserProps> = ({
       }}
     >
       <ChromeBrowser
-        size={size}
-        text={text}
-        disabled={disabled}
-        onClick={onClick}
-        primary={primary}
-      />
+        link={link}
+        theme={theme}
+        type={type}
+        shadow={shadow}
+        leftIcons={leftIcons}
+        rightIcons={rightIcons}
+      >
+        {children}
+      </ChromeBrowser>
     </div>
   );
 };
