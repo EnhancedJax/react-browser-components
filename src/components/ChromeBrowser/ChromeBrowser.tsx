@@ -1,8 +1,8 @@
-// components/button/button.tsx
+// components/ChromeBrowser/ChromeBrowser.tsx
 import React, { MouseEventHandler } from "react";
 import styled from "styled-components";
 
-export type ButtonProps = {
+export type ChromeBrowserProps = {
   text?: string;
   primary?: boolean;
   disabled?: boolean;
@@ -10,7 +10,7 @@ export type ButtonProps = {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
-const StyledButton = styled.button<ButtonProps>`
+const StyledButton = styled.button<ChromeBrowserProps>`
   border: 0;
   line-height: 1;
   font-size: 15px;
@@ -25,11 +25,11 @@ const StyledButton = styled.button<ButtonProps>`
     props.size === "small"
       ? "7px 25px 8px"
       : props.size === "medium"
-      ? "9px 30px 11px"
-      : "14px 30px 16px"};
+        ? "9px 30px 11px"
+        : "14px 30px 16px"};
 `;
 
-const Button: React.FC<ButtonProps> = ({
+const ChromeBrowser: React.FC<ChromeBrowserProps> = ({
   size,
   primary,
   disabled,
@@ -51,4 +51,4 @@ const Button: React.FC<ButtonProps> = ({
   );
 };
 
-export default Button;
+export default ChromeBrowser;

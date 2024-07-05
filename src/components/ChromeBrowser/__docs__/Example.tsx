@@ -1,12 +1,12 @@
 import React, { FC } from "react";
-import Button, { ButtonProps } from "../Button";
+import ChromeBrowser, { ChromeBrowserProps } from "../ChromeBrowser";
 
-const Example: FC<ButtonProps> = ({
+const Example: FC<ChromeBrowserProps> = ({
   disabled = false,
   onClick = () => {},
   primary = true,
   size = "small",
-  text = "Button",
+  text = "ChromeBrowser",
 }) => {
   return (
     <div
@@ -17,7 +17,7 @@ const Example: FC<ButtonProps> = ({
         height: "100%",
       }}
     >
-      <Button
+      <ChromeBrowser
         size={size}
         text={text}
         disabled={disabled}
