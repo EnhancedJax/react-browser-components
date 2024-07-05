@@ -3,10 +3,10 @@ import ChromeBrowser from "../ChromeBrowser";
 import { ChromeBrowserProps } from "../props";
 
 const Example: FC<ChromeBrowserProps> = ({
-  link,
   theme,
-  type,
+  tabs,
   shadow,
+  useContentSize,
   leftIcons,
   rightIcons,
   children,
@@ -17,13 +17,13 @@ const Example: FC<ChromeBrowserProps> = ({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100%",
+        height: "600px",
       }}
     >
       <ChromeBrowser
-        link={link}
         theme={theme}
-        type={type}
+        tabs={tabs}
+        useContentSize={useContentSize}
         shadow={shadow}
         leftIcons={leftIcons}
         rightIcons={rightIcons}
