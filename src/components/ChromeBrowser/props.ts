@@ -6,7 +6,7 @@ export type ChromeBrowserProps = {
     content: React.ReactNode;
   }>;
   shadow?: boolean;
-  useContentSize?: boolean;
+  usecontentsize?: boolean;
   leftIcons?: React.ReactNode;
   rightIcons?: React.ReactNode;
   children?: React.ReactNode;

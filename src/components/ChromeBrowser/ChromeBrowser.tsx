@@ -39,7 +39,7 @@ const ChromeBrowser: React.FC<ChromeBrowserProps> = ({
     },
   ],
   shadow = false,
-  useContentSize = false,
+  usecontentsize = false,
   leftIcons = (
     <>
       <img src="/arrowback.svg" width={16} height={16} />
@@ -57,8 +57,8 @@ const ChromeBrowser: React.FC<ChromeBrowserProps> = ({
     <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
       <BrowserContainer
         {...props}
-        shadow={shadow}
-        useContentSize={useContentSize}
+        $shadow={shadow}
+        $usecontentsize={usecontentsize}
       >
         <Bar>
           <TitleRow>
@@ -74,14 +74,19 @@ const ChromeBrowser: React.FC<ChromeBrowserProps> = ({
                   if (index === selectedTab) {
                     return (
                       <>
-                        <TabDecorator before />
-                        <Tab selected>{tab.name}</Tab>
-                        <TabDecorator after />
+                        <TabDecorator
+                          $before
+                          key={`${index}-decorator-before`}
+                        />
+                        <Tab selected key={index}>
+                          {tab.name}
+                        </Tab>
+                        <TabDecorator $after key={`${index}-decorator-after`} />
                       </>
                     );
                   } else {
                     return (
-                      <Tab onClick={() => setSelectedTab(index)}>
+                      <Tab onClick={() => setSelectedTab(index)} key={index}>
                         {tab.name}
                       </Tab>
                     );

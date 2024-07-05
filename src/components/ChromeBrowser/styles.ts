@@ -33,17 +33,17 @@ export const darkTheme: Theme = {
 
 export const BrowserContainer = styled.div<{
   theme: Theme;
-  shadow?: boolean;
-  useContentSize?: boolean;
+  $shadow?: boolean;
+  $usecontentsize?: boolean;
 }>`
   border: 1px solid ${({ theme }) => theme.border};
   border-radius: 8px;
   background-color: ${({ theme }) => theme.bg};
-  width: ${({ useContentSize }) => (useContentSize ? "inherit" : "100%")};
-  height: ${({ useContentSize }) => (useContentSize ? "inherit" : "100%")};
+  width: ${({ $usecontentsize }) => ($usecontentsize ? "inherit" : "100%")};
+  height: ${({ $usecontentsize }) => ($usecontentsize ? "inherit" : "100%")};
   position: relative;
-  box-shadow: ${(props) =>
-    props.shadow ? "0 0 40px rgba(0,0,0,0.1)" : "none"};
+  box-shadow: ${({ $shadow }) =>
+    $shadow ? "0 0 40px rgba(0,0,0,0.1)" : "none"};
   font-family:
     system-ui,
     -apple-system,
@@ -139,15 +139,15 @@ export const Tab = styled.button<{ selected?: boolean; theme: Theme }>`
 `;
 
 export const TabDecorator = styled.div<{
-  before?: boolean;
-  after?: boolean;
+  $before?: boolean;
+  $after?: boolean;
   theme: Theme;
 }>`
   width: 8px;
   height: 8px;
   margin-top: auto;
   background-color: ${({ theme }) => theme.bg};
-  margin-right: ${({ after }) => (after ? "-4px" : "0")};
+  margin-right: ${({ $after }) => ($after ? "-4px" : "0")};
   transition: background-color 0.3s;
 
   &::after {
@@ -155,8 +155,8 @@ export const TabDecorator = styled.div<{
     display: block;
     width: 8px;
     height: 8px;
-    border-bottom-left-radius: ${(props) => (props.before ? "0" : "8px")};
-    border-bottom-right-radius: ${(props) => (props.after ? "0" : "8px")};
+    border-bottom-left-radius: ${(props) => (props.$before ? "0" : "8px")};
+    border-bottom-right-radius: ${(props) => (props.$after ? "0" : "8px")};
     background-color: ${({ theme }) => theme.tabBarBg};
   }
 `;

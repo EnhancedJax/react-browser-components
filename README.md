@@ -1,6 +1,6 @@
 # react-browser-containers
 
-A component library with React, Typescript and Storybook.
+Browser containers.
 
 ### Run Locally
 

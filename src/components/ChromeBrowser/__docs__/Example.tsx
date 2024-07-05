@@ -6,7 +6,7 @@ const Example: FC<ChromeBrowserProps> = ({
   theme,
   tabs,
   shadow,
-  useContentSize,
+  usecontentsize,
   leftIcons,
   rightIcons,
   children,
@@ -23,7 +23,7 @@ const Example: FC<ChromeBrowserProps> = ({
       <ChromeBrowser
         theme={theme}
         tabs={tabs}
-        useContentSize={useContentSize}
+        usecontentsize={usecontentsize}
         shadow={shadow}
         leftIcons={leftIcons}
         rightIcons={rightIcons}
