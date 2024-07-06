@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ThemeProvider } from "styled-components";
 import { ChromeBrowserProps } from "./props";
 import {
@@ -13,9 +13,15 @@ import {
   TabDecorator,
   Tabs,
   TitleRow,
-  darkTheme,
-  lightTheme,
+  darkTheme as defaultDarkTheme,
+  lightTheme as defaultLightTheme,
 } from "./styles";
+
+// Import SVGs
+import ArrowBackIcon from "../../assets/arrowback.svg?react";
+import ArrowForwardIcon from "../../assets/arrowforward.svg?react";
+import MoreVertIcon from "../../assets/morevert.svg?react";
+import RefreshIcon from "../../assets/refresh.svg?react";
 
 const ChromeBrowser: React.FC<ChromeBrowserProps> = ({
   theme = "light",
@@ -38,23 +44,25 @@ const ChromeBrowser: React.FC<ChromeBrowserProps> = ({
       ),
     },
   ],
-  shadow = false,
+  shadow = true,
   usecontentsize = false,
   leftIcons = (
     <>
-      <img src="/arrowback.svg" width={16} height={16} />
-      <img src="/arrowforward.svg" width={16} height={16} />
-      <img src="/refresh.svg" width={16} height={16} />
+      <ArrowBackIcon width={16} height={16} />
+      <ArrowForwardIcon width={16} height={16} />
+      <RefreshIcon width={16} height={16} />
     </>
   ),
-  rightIcons = <img src="/morevert.svg" width={16} height={16} />,
+  rightIcons = <MoreVertIcon width={16} height={16} />,
   children = null,
+  tab = 0,
+  setTab = () => {},
   ...props
 }) => {
-  const [selectedTab, setSelectedTab] = useState(0);
-
   return (
-    <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
+    <ThemeProvider
+      theme={theme === "dark" ? defaultDarkTheme : defaultLightTheme}
+    >
       <BrowserContainer
         {...props}
         $shadow={shadow}
@@ -70,8 +78,8 @@ const ChromeBrowser: React.FC<ChromeBrowserProps> = ({
             <Tabs>
               {Array.isArray(tabs) &&
                 tabs.length > 0 &&
-                tabs.map((tab, index) => {
-                  if (index === selectedTab) {
+                tabs.map((t, index) => {
+                  if (index === tab) {
                     return (
                       <>
                         <TabDecorator
@@ -79,15 +87,15 @@ const ChromeBrowser: React.FC<ChromeBrowserProps> = ({
                           key={`${index}-decorator-before`}
                         />
                         <Tab selected key={index}>
-                          {tab.name}
+                          {t.name}
                         </Tab>
                         <TabDecorator $after key={`${index}-decorator-after`} />
                       </>
                     );
                   } else {
                     return (
-                      <Tab onClick={() => setSelectedTab(index)} key={index}>
-                        {tab.name}
+                      <Tab onClick={() => setTab(index)} key={index}>
+                        {t.name}
                       </Tab>
                     );
                   }
@@ -97,13 +105,13 @@ const ChromeBrowser: React.FC<ChromeBrowserProps> = ({
           <SearchRow>
             <IconsFlex>{leftIcons}</IconsFlex>
             <SearchBar>
-              {Array.isArray(tabs) && tabs.length > 0 && tabs[selectedTab].link}
+              {Array.isArray(tabs) && tabs.length > 0 && tabs[tab].link}
             </SearchBar>
             <IconsFlex>{rightIcons}</IconsFlex>
           </SearchRow>
         </Bar>
         <div style={{ position: "relative" }}>
-          {Array.isArray(tabs) && tabs.length > 0 && tabs[selectedTab].content}
+          {Array.isArray(tabs) && tabs.length > 0 && tabs[tab].content}
           <div style={{ position: "absolute" }}>{children}</div>
         </div>
       </BrowserContainer>
