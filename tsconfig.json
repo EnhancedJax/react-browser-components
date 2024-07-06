@@ -20,9 +20,8 @@
     "noUnusedParameters": true, // Flags unused function parameters.
     "noFallthroughCasesInSwitch": true, // Requires handling all cases in a switch statement.
     "declaration": true, // Generates declaration files for TypeScript.
+    "typeRoots": ["./src/types"] // Specifies the location of type definition files.
   },
-  "include": ["src"], // Specifies the directory to include when searching for TypeScript files.
-  "exclude": [
-    "src/**/__docs__","src/**/__test__"
-  ]
+  "include": ["src/**/*", "src/types/svg.d.ts"],
+  "exclude": ["src/**/__docs__", "src/**/__test__"]
 }

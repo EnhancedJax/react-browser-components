@@ -39,7 +39,7 @@ export const BrowserContainer = styled.div<{
   border: 1px solid ${({ theme }) => theme.border};
   border-radius: 8px;
   background-color: ${({ theme }) => theme.bg};
-  width: ${({ $usecontentsize }) => ($usecontentsize ? "inherit" : "100%")};
+  width: ${({ $usecontentsize }) => ($usecontentsize ? "max-content" : "100%")};
   height: ${({ $usecontentsize }) => ($usecontentsize ? "inherit" : "100%")};
   position: relative;
   box-shadow: ${({ $shadow }) =>

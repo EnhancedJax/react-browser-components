@@ -17,7 +17,7 @@
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "files": [
-    "/dist"
+    "dist"
   ],
   "repository": {
     "type": "git",
@@ -55,8 +55,6 @@
     "jsdom": "^22.1.0",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "storybook": "^8.1.11",
     "styled-components": "^6.0.7",
     "typescript": "^5.2.2",
@@ -66,7 +64,8 @@
     "vitest": "^0.34.4"
   },
   "peerDependencies": {
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

@@ -10,4 +10,6 @@ export type ChromeBrowserProps = {
   leftIcons?: React.ReactNode;
   rightIcons?: React.ReactNode;
   children?: React.ReactNode;
+  tab?: number;
+  setTab?: (tab: number) => void;
 };

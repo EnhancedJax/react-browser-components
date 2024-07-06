@@ -1,41 +1,74 @@
 # react-browser-containers
 
-Browser containers.
+React Browser "container" components library , with tabs functionality.
 
-### Run Locally
+## Basic Usage
 
-Clone the project
+```jsx
+import { BrowserContainer } from "@enhanced-jax/react-browser-containers";
+import { useState } from "react";
 
-```bash
-  https://github.com/EnhancedJax/react-browser-containers.git
+const App = () => {
+  const [tab, setTab] = useState(0);
+
+  return (
+    <ChromeBrowser
+      tab={tab}
+      setTab={setTab}
+      tabs={{
+        name: "Tab 1",
+        link: "/tab1",
+        content: <div>Tab 1 Content</div>,
+      }}
+    ></ChromeBrowser>
+  );
+};
 ```
 
-Go to the project directory
+### Props
 
-```bash
-  cd react-browser-containers
+```js
+export type ChromeBrowserProps = {
+  theme?: "light" | "dark"; // theme of the browser, default is light
+  tabs?: Array<{ // pages in the browser
+    name: string;
+    link: string; // decorative link in the URL bar
+    content: React.ReactNode; // content of the page
+  }>;
+  shadow?: boolean; // shadow of the browser, default is true
+  usecontentsize?: boolean; // default is false: browser will be the size of it's parent element. true: browser will be the size of it's content
+  leftIcons?: React.ReactNode; // leave empty for default icons
+  rightIcons?: React.ReactNode; // leave empty for default icons
+  children?: React.ReactNode; // content displayed under all pages
+  tab?: number;
+  setTab?: (tab: number) => void;
+};
 ```
 
-Install dependencies
+## Development
+
+To get started:
 
 ```bash
-  npm install
+git clone https://github.com/EnhancedJax/react-browser-containers.git
+cd react-browser-containers
+npm i
 ```
 
-To build library
+Actions:
 
 ```bash
-  npm run build
+npm run storybook # start storybook
+npm run build # build the library
+npm run test # test the library
 ```
 
-To start storybook
+### Testing in another project
 
 ```bash
-  npm run storybook
-```
-
-To test the library
-
-```bash
-  npm run test
+npm run build
+npm link
+npm link "../your-project/node_modules/react"
+cd ../your-project
+npm link @enhanced-jax/react-browser-containers
 ```

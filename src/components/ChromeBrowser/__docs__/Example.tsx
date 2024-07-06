@@ -11,26 +11,21 @@ const Example: FC<ChromeBrowserProps> = ({
   rightIcons,
   children,
 }) => {
+  const [tab, setTab] = React.useState(0);
+
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "600px",
-      }}
+    <ChromeBrowser
+      theme={theme}
+      tabs={tabs}
+      tab={tab}
+      setTab={setTab}
+      usecontentsize={usecontentsize}
+      shadow={shadow}
+      leftIcons={leftIcons}
+      rightIcons={rightIcons}
     >
-      <ChromeBrowser
-        theme={theme}
-        tabs={tabs}
-        usecontentsize={usecontentsize}
-        shadow={shadow}
-        leftIcons={leftIcons}
-        rightIcons={rightIcons}
-      >
-        {children}
-      </ChromeBrowser>
-    </div>
+      {children}
+    </ChromeBrowser>
   );
 };
 
