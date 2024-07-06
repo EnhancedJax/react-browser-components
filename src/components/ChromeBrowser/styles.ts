@@ -58,6 +58,7 @@ export const BrowserContainer = styled.div<{
     sans-serif;
   color: ${({ theme }) => theme.text};
   overflow: hidden;
+  text-align: left;
   transition:
     background-color 0.3s,
     color 0.3s;
