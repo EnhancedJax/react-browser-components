@@ -45,23 +45,30 @@ export type ChromeBrowserProps = {
 };
 ```
 
-## Run Locally
+## Development
 
-To run the project locally, follow the steps below:
+To get started:
 
-1. Clone the project: `git clone https://github.com/EnhancedJax/react-browser-containers.git`
-2. Go to the project directory: `cd react-browser-containers`
-3. Install dependencies: `npm install`
+```bash
+git clone https://github.com/EnhancedJax/react-browser-containers.git
+cd react-browser-containers
+npm i
+```
 
----
+Actions:
 
-- To start storybook: `npm run storybook`
-- To build the library: `npm run build`
-- To test the library: `npm run test`
+```bash
+npm run storybook # start storybook
+npm run build # build the library
+npm run test # test the library
+```
 
-### Using library locally
+### Testing in another project
 
-1. Build the library: `npm run build`
-2. Link the library: `npm link`
-3. Ensure same react version: `npm link "../your-project/node_modules/react"`
-4. Import and develop
+```bash
+npm run build
+npm link
+npm link "../your-project/node_modules/react"
+cd ../your-project
+npm link @enhanced-jax/react-browser-containers
+```
