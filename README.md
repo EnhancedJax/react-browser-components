@@ -5,7 +5,7 @@ React Browser "container" components library , with tabs functionality.
 ## Basic Usage
 
 ```jsx
-import { BrowserContainer } from "react-browser-containers";
+import { BrowserContainer } from "@enhanced-jax/react-browser-containers";
 import { useState } from "react";
 
 const App = () => {
@@ -70,5 +70,5 @@ npm run build
 npm link
 npm link "../your-project/node_modules/react"
 cd ../your-project
-npm link react-browser-containers
+npm link @enhanced-jax/react-browser-containers
 ```
