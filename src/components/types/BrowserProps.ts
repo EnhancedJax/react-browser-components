@@ -6,9 +6,11 @@ export default interface BrowserProps {
     name: string;
     link: string;
     content: React.ReactNode;
+    icon: React.ReactNode;
   }>;
   shadow?: boolean;
-  usecontentsize?: boolean;
+  useContentSize?: boolean;
+  contentScroll?: boolean;
   leftIcons?: React.ReactNode;
   rightIcons?: React.ReactNode;
   lightTheme?: Theme;

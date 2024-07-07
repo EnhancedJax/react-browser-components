@@ -6,7 +6,7 @@ export const lightTheme: Theme = {
   bg: "linear-gradient(210deg, #D3C26A 0%, #E97580 100%)",
   contentBg: "#FFF",
   text: "#71393E",
-  border: "#E1E3E1",
+  border: "#6b4f52",
   tabBarBg: "transparent",
   searchBarBg: "rgba(100,50,0,0.1)",
   tabDivider: "rgba(100,50,0,0.1)",
@@ -19,14 +19,14 @@ export const darkTheme: Theme = lightTheme;
 export const BrowserContainer = styled.div<{
   theme: Theme;
   $shadow?: boolean;
-  $usecontentsize?: boolean;
+  $useContentSize?: boolean;
 }>`
   border: 1px solid ${({ theme }) => theme.border};
   border-radius: 8px;
   background-image: ${({ theme }) => theme.bg};
-  width: ${({ $usecontentsize }) => ($usecontentsize ? "max-content" : "100%")};
-  height: ${({ $usecontentsize }) =>
-    $usecontentsize ? "max-content" : "100%"};
+  width: ${({ $useContentSize }) => ($useContentSize ? "max-content" : "100%")};
+  height: ${({ $useContentSize }) =>
+    $useContentSize ? "max-content" : "100%"};
   position: relative;
   display: flex;
   box-shadow: ${({ $shadow }) =>
@@ -53,12 +53,15 @@ export const BrowserContainer = styled.div<{
     color 0.3s;
 `;
 
-export const ContentContainer = styled.div<{ theme: Theme }>`
+export const ContentContainer = styled.div<{
+  $contentScroll: boolean;
+  theme: Theme;
+}>`
   background-color: ${({ theme }) => theme.contentBg};
   border-radius: 6px;
   width: 100%;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
-  overflow: scroll;
+  overflow: ${({ $contentScroll }) => ($contentScroll ? "scroll" : "hidden")};
   position: relative;
 `;
 
@@ -95,7 +98,6 @@ export const TabsContainer = styled.div`
 `;
 
 export const TabContainer = styled.button<{ selected?: boolean; theme: Theme }>`
-  display: block;
   padding: 8px;
   border-radius: 10px;
   border: none;
@@ -115,6 +117,8 @@ export const TabContainer = styled.button<{ selected?: boolean; theme: Theme }>`
   margin-bottom: 4px;
   width: 100%;
   text-align: left;
+  display: flex;
+  gap: 6px;
 `;
 
 export const SearchBar = styled.div<{ theme: Theme }>`

@@ -30,14 +30,14 @@ export const darkTheme: Theme = {
 export const BrowserContainer = styled.div<{
   theme: Theme;
   $shadow?: boolean;
-  $usecontentsize?: boolean;
+  $useContentSize?: boolean;
 }>`
   border: 1px solid ${({ theme }) => theme.border};
   border-radius: 8px;
   background-color: ${({ theme }) => theme.bg};
-  width: ${({ $usecontentsize }) => ($usecontentsize ? "max-content" : "100%")};
-  height: ${({ $usecontentsize }) =>
-    $usecontentsize ? "max-content" : "100%"};
+  width: ${({ $useContentSize }) => ($useContentSize ? "max-content" : "100%")};
+  height: ${({ $useContentSize }) =>
+    $useContentSize ? "max-content" : "100%"};
   position: relative;
   box-shadow: ${({ $shadow }) =>
     $shadow ? "0 0 40px rgba(0,0,0,0.1)" : "none"};
@@ -125,10 +125,13 @@ export const IconsFlex = styled.div`
   }
 `;
 
-export const ContentContainer = styled.div<{ theme: Theme }>`
+export const ContentContainer = styled.div<{
+  $contentScroll: boolean;
+  theme: Theme;
+}>`
   background-color: ${({ theme }) => theme.contentBg};
   width: 100%;
-  overflow: scroll;
+  overflow: ${({ $contentScroll }) => ($contentScroll ? "scroll" : "hidden")};
   position: relative;
   height: 100%;
 `;

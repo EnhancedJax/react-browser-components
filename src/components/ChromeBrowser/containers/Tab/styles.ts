@@ -22,6 +22,9 @@ export const TabBody = styled.div<{ selected?: boolean; theme: Theme }>`
   border-radius: ${({ selected }) => (selected ? "8px 8px 0 0" : "8px")};
   width: 100px;
   text-overflow: ellipsis;
+  display: flex;
+  gap: 6px;
+  align-items: center;
   transition:
     background-color 0.3s,
     color 0.3s;

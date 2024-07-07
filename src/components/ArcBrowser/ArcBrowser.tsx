@@ -1,6 +1,10 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import BrowserProps from "../types/BrowserProp";
+import ArrowBackIcon from "../../assets/arrowback.svg?react";
+import ArrowForwardIcon from "../../assets/arrowforward.svg?react";
+import MoreHoriIcon from "../../assets/morehori.svg?react";
+import StorybookIcon from "../../assets/storybook.svg?react";
+import BrowserProps from "../types/BrowserProps";
 import {
   BrowserContainer,
   ContentContainer,
@@ -15,11 +19,6 @@ import {
   darkTheme as defaultDarkTheme,
   lightTheme as defaultLightTheme,
 } from "./styles";
-
-// Import SVGs
-import ArrowBackIcon from "../../assets/arrowback.svg?react";
-import ArrowForwardIcon from "../../assets/arrowforward.svg?react";
-import MoreHoriIcon from "../../assets/morehori.svg?react";
 
 const ChromeBrowser: React.FC<BrowserProps> = ({
   theme = "light",
@@ -37,13 +36,15 @@ const ChromeBrowser: React.FC<BrowserProps> = ({
             height: "480px",
           }}
         >
-          Hello
+          Hello 👋
         </div>
       ),
+      icon: <StorybookIcon width={14} height={14} />,
     },
   ],
   shadow = true,
-  usecontentsize = false,
+  useContentSize = false,
+  contentScroll = true,
   leftIcons = (
     <>
       <ArrowBackIcon width={16} height={16} />
@@ -69,7 +70,7 @@ const ChromeBrowser: React.FC<BrowserProps> = ({
       <BrowserContainer
         {...props}
         $shadow={shadow}
-        $usecontentsize={usecontentsize}
+        $useContentSize={useContentSize}
       >
         <SideBar>
           <TitleRow>
@@ -97,12 +98,14 @@ const ChromeBrowser: React.FC<BrowserProps> = ({
                       onClick={() => setTab(index)}
                       selected
                     >
+                      {t?.icon}
                       {t.name}
                     </TabContainer>
                   );
                 } else {
                   return (
                     <TabContainer key={index} onClick={() => setTab(index)}>
+                      {t?.icon}
                       {t.name}
                     </TabContainer>
                   );
@@ -110,9 +113,9 @@ const ChromeBrowser: React.FC<BrowserProps> = ({
               })}
           </TabsContainer>
         </SideBar>
-        <ContentContainer>
+        <ContentContainer $contentScroll={contentScroll}>
           {Array.isArray(tabs) && tabs.length > 0 && tabs[tab].content}
-          <div style={{ position: "absolute" }}>{children}</div>
+          <div style={{ position: "absolute", top: "0" }}>{children}</div>
         </ContentContainer>
       </BrowserContainer>
     </ThemeProvider>

@@ -1,6 +1,8 @@
 # react-browser-containers
 
-React Browser "container" components library , with tabs functionality. The library currency provides two browser components: `ChromeBrowser` and `ArcBrowser`.
+React Browser "container" components library, with tabs functionality. The library currency provides two browser components: `ChromeBrowser` and `ArcBrowser`.
+
+You can use the components to demonstrate functionality with browsers, or as decorative elements in your project. The components are not designed to be used as actual browsers.
 
 ## Basic Usage
 
@@ -34,14 +36,16 @@ export type ChromeBrowserProps = {
     name: string;
     link: string; // decorative link in the URL bar
     content: React.ReactNode; // content of the page
+    icon: React.ReactNode; // icon of the page. Recommend size: 12px (Chrome) 14px (Arc)
   }>;
   shadow?: boolean; // shadow of the browser, default is true
-  usecontentsize?: boolean; // default is false: browser will be the size of it's parent element. true: browser will be the size of it's content
+  useContentSize?: boolean; // default is false: browser will be the size of it's parent element. true: browser will be the size of it's content
+  contentScroll?: boolean; // if content inside the container should be scrollable, default is true
   leftIcons?: React.ReactNode; // leave empty for default icons
   rightIcons?: React.ReactNode; // leave empty for default icons
   lightTheme?: Theme; // changes the light theme of the browser
   darkTheme?: Theme; // changes the dark theme of the browser
-  children?: React.ReactNode; // content displayed under all pages
+  children?: React.ReactNode; // content displayed over all pages
   tab?: number;
   setTab?: (tab: number) => void;
 };

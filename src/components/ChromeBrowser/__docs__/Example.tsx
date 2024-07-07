@@ -6,7 +6,7 @@ const Example: FC<BrowserProps> = ({
   theme,
   tabs,
   shadow,
-  usecontentsize,
+  useContentSize,
   leftIcons,
   rightIcons,
   children,
@@ -25,7 +25,7 @@ const Example: FC<BrowserProps> = ({
         tabs={tabs}
         tab={tab}
         setTab={setTab}
-        usecontentsize={usecontentsize}
+        useContentSize={useContentSize}
         shadow={shadow}
         leftIcons={leftIcons}
         rightIcons={rightIcons}
