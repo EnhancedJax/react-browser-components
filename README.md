@@ -1,6 +1,6 @@
 # react-browser-containers
 
-React Browser "container" components library , with tabs functionality.
+React Browser "container" components library , with tabs functionality. The library currency provides two browser components: `ChromeBrowser` and `ArcBrowser`.
 
 ## Basic Usage
 
@@ -29,7 +29,7 @@ const App = () => {
 
 ```js
 export type ChromeBrowserProps = {
-  theme?: "light" | "dark"; // theme of the browser, default is light
+  theme?: "light" | "dark"; // theme of the browser, default is light. The light and dark theme of ArcBrowser is the same.
   tabs?: Array<{ // pages in the browser
     name: string;
     link: string; // decorative link in the URL bar
@@ -39,10 +39,27 @@ export type ChromeBrowserProps = {
   usecontentsize?: boolean; // default is false: browser will be the size of it's parent element. true: browser will be the size of it's content
   leftIcons?: React.ReactNode; // leave empty for default icons
   rightIcons?: React.ReactNode; // leave empty for default icons
+  lightTheme?: Theme; // changes the light theme of the browser
+  darkTheme?: Theme; // changes the dark theme of the browser
   children?: React.ReactNode; // content displayed under all pages
   tab?: number;
   setTab?: (tab: number) => void;
 };
+```
+
+```js
+export default interface Theme {
+  theme: string;
+  bg: string;
+  contentBg: string;
+  text: string;
+  border: string;
+  searchBarBg: string;
+  tabBarBg: string;
+  tabDivider: string;
+  tabHoverBg: string;
+  tabSelectedBg: string;
+}
 ```
 
 ## Development

@@ -1,4 +1,6 @@
-export type ChromeBrowserProps = {
+import Theme from "./BrowserTheme";
+
+export default interface BrowserProps {
   theme?: "light" | "dark";
   tabs?: Array<{
     name: string;
@@ -9,7 +11,9 @@ export type ChromeBrowserProps = {
   usecontentsize?: boolean;
   leftIcons?: React.ReactNode;
   rightIcons?: React.ReactNode;
+  lightTheme?: Theme;
+  darkTheme?: Theme;
   children?: React.ReactNode;
   tab?: number;
   setTab?: (tab: number) => void;
-};
+}

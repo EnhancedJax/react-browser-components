@@ -3,7 +3,7 @@ import React from "react";
 import Example from "./Example";
 
 const meta: Meta<typeof Example> = {
-  title: "ChromeBrowser",
+  title: "ArcBrowser",
   component: Example,
 };
 
@@ -19,7 +19,7 @@ export const MultipleTabs: Story = {
     tabs: [
       {
         name: "Tab 1",
-        link: "https://google.com",
+        link: "google.com",
         content: (
           <div
             style={{
@@ -27,7 +27,7 @@ export const MultipleTabs: Story = {
               justifyContent: "center",
               alignItems: "center",
               width: "640px",
-              height: "1000px",
+              height: "2000px",
             }}
           >
             Hello 1
@@ -36,7 +36,7 @@ export const MultipleTabs: Story = {
       },
       {
         name: "Tab 2",
-        link: "https://bing.com",
+        link: "bing.com",
         content: (
           <div
             style={{
@@ -53,7 +53,7 @@ export const MultipleTabs: Story = {
       },
       {
         name: "Tab 3",
-        link: "https://duckduckgo.com",
+        link: "duckduckgo.com",
         content: (
           <div
             style={{

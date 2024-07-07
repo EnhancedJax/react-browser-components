@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import BrowserProps from "../../types/BrowserProp";
-import ChromeBrowser from "../ChromeBrowser";
+import ArcBrowser from "../ArcBrowser";
 
 const Example: FC<BrowserProps> = ({
   theme,
@@ -20,7 +20,7 @@ const Example: FC<BrowserProps> = ({
         height: "600px",
       }}
     >
-      <ChromeBrowser
+      <ArcBrowser
         theme={theme}
         tabs={tabs}
         tab={tab}
@@ -31,7 +31,7 @@ const Example: FC<BrowserProps> = ({
         rightIcons={rightIcons}
       >
         {children}
-      </ChromeBrowser>
+      </ArcBrowser>
     </div>
   );
 };
