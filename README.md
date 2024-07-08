@@ -1,14 +1,18 @@
-# react-browser-containers
+# 🪟 react-browser-containers ✨
 
-React Browser "container" components library, with tabs functionality. The library currency provides two browser components: `ChromeBrowser` and `ArcBrowser`.
+Customizable browser-like containers, with tabs functionality (React).
+
+```bash
+npm i @enhanced-jax/react-browser-containers
+```
 
 ![npm](https://img.shields.io/npm/v/@enhanced-jax/react-browser-containers)
 ![GitHub license](https://img.shields.io/github/license/EnhancedJax/react-browser-containers)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/@enhanced-jax/react-browser-containers)
 
-|      ChromeBrowser       |      ArcBrowser       |
-| :----------------------: | :-------------------: |
-| ![](./images/chrome.jpg) | ![](./images/arc.jpg) |
+| ![](./images/chrome.png) ChromeBrowser | ![](./images/arc.png) ArcBrowser |
+| :------------------------------------: | :------------------------------: |
+|        ![](./images/chrome.jpg)        |      ![](./images/arc.jpg)       |
 
 You can use the components to demonstrate functionality with browsers, or as decorative elements in your project. The components are not designed to be used as actual browsers.
 
@@ -20,45 +24,40 @@ import { useState } from "react";
 
 const App = () => {
   const [tab, setTab] = useState(0);
+  const tabs = [
+    {
+      name: "Google",
+      link: "https://google.com",
+      content: <div>Content</div>,
+      icon: (
+        <img
+          src="https://google.com/favicon.ico"
+          style={{ width: "100%", height: "100%" }}
+        />
+      ),
+    },
+  ];
 
-  return (
-    <ChromeBrowser
-      tab={tab}
-      setTab={setTab}
-      tabs={{
-        name: "Tab 1",
-        link: "/tab1",
-        content: <div>Tab 1 Content</div>,
-      }}
-    ></ChromeBrowser>
-  );
+  return <ChromeBrowser tab={tab} setTab={setTab} tabs={tabs}></ChromeBrowser>;
 };
 ```
 
 ### Props
 
-```js
-export type ChromeBrowserProps = {
-  theme?: "light" | "dark"; // theme of the browser, default is light. The light and dark theme of ArcBrowser is the same.
-  tabs?: Array<{ // pages in the browser
-    name: string;
-    link: string; // decorative link in the URL bar
-    content: React.ReactNode; // content of the page
-    icon: React.ReactNode; // icon of the page. use w/h 100%.
-    // tip: get fav icon from any site using https://www.domain.com/favicon.ico
-  }>;
-  shadow?: boolean; // shadow of the browser, default is true
-  useContentSize?: boolean; // default is false: browser will be the size of it's parent element. true: browser will be the size of it's content
-  contentScroll?: boolean; // if content inside the container should be scrollable, default is true
-  leftIcons?: React.ReactNode; // leave empty for default icons
-  rightIcons?: React.ReactNode; // leave empty for default icons
-  lightTheme?: Theme; // changes the light theme of the browser
-  darkTheme?: Theme; // changes the dark theme of the browser
-  children?: React.ReactNode; // content displayed over all pages
-  tab?: number;
-  setTab?: (tab: number) => void;
-};
-```
+| Name           | Type                                                                                 | Description                                                                                                      |
+| -------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| theme          | `"light" \| "dark"`                                                                  | Theme of the browser, default is light. The light and dark theme of ArcBrowser is the same.                      |
+| tabs           | `Array<{name: string;link: string;content: React.ReactNode;icon: React.ReactNode;}>` | Pages in the browser.                                                                                            |
+| shadow         | `boolean`                                                                            | Shadow of the browser, default is true.                                                                          |
+| useContentSize | `boolean`                                                                            | Default is false: browser will be the size of its parent element. True: browser will be the size of its content. |
+| contentScroll  | `boolean`                                                                            | If content inside the container should be scrollable, default is true.                                           |
+| leftIcons      | `React.ReactNode`                                                                    | Leave empty for default icons.                                                                                   |
+| rightIcons     | `React.ReactNode`                                                                    | Leave empty for default icons.                                                                                   |
+| lightTheme     | `Theme`                                                                              | Changes the light theme of the browser.                                                                          |
+| darkTheme      | `Theme`                                                                              | Changes the dark theme of the browser.                                                                           |
+| children       | `React.ReactNode`                                                                    | Content displayed over all pages.                                                                                |
+| tab            | `number`                                                                             | Active tab index.                                                                                                |
+| setTab         | `(tab: number) => void`                                                              | Function to set the active tab index.                                                                            |
 
 ```js
 export default interface Theme {
