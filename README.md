@@ -1,14 +1,18 @@
-# react-browser-containers
+# 🪟 react-browser-containers ✨
 
-Customizable browser-like containers, with tabs functionality (React). The library currency provides two browser components: `ChromeBrowser` and `ArcBrowser`.
+Customizable browser-like containers, with tabs functionality (React).
+
+```bash
+npm i @enhanced-jax/react-browser-containers
+```
 
 ![npm](https://img.shields.io/npm/v/@enhanced-jax/react-browser-containers)
 ![GitHub license](https://img.shields.io/github/license/EnhancedJax/react-browser-containers)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/@enhanced-jax/react-browser-containers)
 
-|      ChromeBrowser       |      ArcBrowser       |
-| :----------------------: | :-------------------: |
-| ![](./images/chrome.jpg) | ![](./images/arc.jpg) |
+| ![](./images/chrome.png) ChromeBrowser | ![](./images/arc.png) ArcBrowser |
+| :------------------------------------: | :------------------------------: |
+|        ![](./images/chrome.jpg)        |      ![](./images/arc.jpg)       |
 
 You can use the components to demonstrate functionality with browsers, or as decorative elements in your project. The components are not designed to be used as actual browsers.
 
