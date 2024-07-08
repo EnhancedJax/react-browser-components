@@ -1,6 +1,6 @@
 {
   "name": "@enhanced-jax/react-browser-containers",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "",
   "scripts": {
     "format": "prettier --write --parser typescript '**/*.{ts,tsx}'",
