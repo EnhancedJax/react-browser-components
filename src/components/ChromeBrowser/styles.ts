@@ -4,8 +4,9 @@ import Theme from "../types/BrowserTheme";
 export const lightTheme: Theme = {
   theme: "light",
   bg: "#fff",
-  contentBg: "#fff",
   text: "#333",
+  contentBg: "#fff",
+  contentText: "#000",
   border: "#E1E3E1",
   tabBarBg: "#E3E3E3",
   searchBarBg: "#efeded",
@@ -17,8 +18,9 @@ export const lightTheme: Theme = {
 export const darkTheme: Theme = {
   theme: "dark",
   bg: "#333",
-  contentBg: "#333",
   text: "#f5f5f5",
+  contentBg: "#333",
+  contentText: "#f5f5f5",
   border: "#555",
   tabBarBg: "#222",
   searchBarBg: "#444",
@@ -56,6 +58,8 @@ export const BrowserContainer = styled.div<{
   color: ${({ theme }) => theme.text};
   overflow: hidden;
   text-align: left;
+  display: flex;
+  flex-direction: column;
   transition:
     background-color 0.3s,
     color 0.3s;
@@ -139,8 +143,10 @@ export const ContentContainer = styled.div<{
   theme: Theme;
 }>`
   background-color: ${({ theme }) => theme.contentBg};
+  color: ${({ theme }) => theme.contentText};
   width: 100%;
   overflow: ${({ $contentScroll }) => ($contentScroll ? "auto" : "hidden")};
   position: relative;
-  height: 100%;
+  flex-grow: 1;
+  max-height: 100%;
 `;

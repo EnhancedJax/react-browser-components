@@ -4,8 +4,9 @@ import Theme from "../types/BrowserTheme";
 export const lightTheme: Theme = {
   theme: "light",
   bg: "linear-gradient(210deg, #D3C26A 0%, #E97580 100%)",
-  contentBg: "#FFF",
   text: "#71393E",
+  contentBg: "#FFF",
+  contentText: "#000",
   border: "#6b4f52",
   tabBarBg: "transparent",
   searchBarBg: "rgba(100,50,0,0.1)",
@@ -58,6 +59,7 @@ export const ContentContainer = styled.div<{
   theme: Theme;
 }>`
   background-color: ${({ theme }) => theme.contentBg};
+  color: ${({ theme }) => theme.contentText};
   border-radius: 6px;
   width: 100%;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
