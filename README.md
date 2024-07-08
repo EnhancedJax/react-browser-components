@@ -19,7 +19,10 @@ You can use the components to demonstrate functionality with browsers, or as dec
 ## Basic Usage
 
 ```jsx
-import { BrowserContainer } from "@enhanced-jax/react-browser-containers";
+import {
+  ChromeBrowser,
+  ArcBrowser,
+} from "@enhanced-jax/react-browser-containers";
 import { useState } from "react";
 
 const App = () => {
@@ -38,7 +41,12 @@ const App = () => {
     },
   ];
 
-  return <ChromeBrowser tab={tab} setTab={setTab} tabs={tabs}></ChromeBrowser>;
+  return (
+    <>
+      <ChromeBrowser tabs={tabs} tab={tab} setTab={setTab} />
+      <ArcBrowser tabs={tabs} tab={tab} setTab={setTab} />
+    </>
+  );
 };
 ```
 
