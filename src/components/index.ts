@@ -1,1 +1,2 @@
-export * from "./ChromeBrowser"; // Add more exports for other components as needed
+export * from "./ArcBrowser";
+export * from "./ChromeBrowser";

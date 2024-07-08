@@ -2,13 +2,10 @@ import React from "react";
 import { ThemeProvider } from "styled-components";
 import ArrowBackIcon from "../../assets/arrowback.svg?react";
 import ArrowForwardIcon from "../../assets/arrowforward.svg?react";
-import MoreVertIcon from "../../assets/morevert.svg?react";
-import RefreshIcon from "../../assets/refresh.svg?react";
+import MoreHoriIcon from "../../assets/morehori.svg?react";
 import StorybookIcon from "../../assets/storybook.svg?react";
 import BrowserProps from "../types/BrowserProps";
-import Tab from "./containers/Tab";
 import {
-  Bar,
   BrowserContainer,
   ContentContainer,
   Dot,
@@ -16,7 +13,8 @@ import {
   Icon,
   IconsFlex,
   SearchBar,
-  SearchRow,
+  SideBar,
+  TabContainer,
   TabsContainer,
   TitleRow,
   darkTheme as defaultDarkTheme,
@@ -28,7 +26,7 @@ const ChromeBrowser: React.FC<BrowserProps> = ({
   tabs = [
     {
       name: "Example",
-      link: "https://example.com",
+      link: "example.com",
       content: (
         <div
           style={{
@@ -46,16 +44,15 @@ const ChromeBrowser: React.FC<BrowserProps> = ({
     },
   ],
   shadow = true,
-  useContentSize = true,
+  useContentSize = false,
   contentScroll = true,
   leftIcons = (
     <>
       <ArrowBackIcon width={16} height={16} />
       <ArrowForwardIcon width={16} height={16} />
-      <RefreshIcon width={16} height={16} />
     </>
   ),
-  rightIcons = <MoreVertIcon width={16} height={16} />,
+  rightIcons = <MoreHoriIcon width={16} height={16} />,
   children = null,
   lightTheme = null,
   darkTheme = null,
@@ -76,43 +73,47 @@ const ChromeBrowser: React.FC<BrowserProps> = ({
         $shadow={shadow}
         $useContentSize={useContentSize}
       >
-        <Bar>
+        <SideBar>
           <TitleRow>
             <Dots>
               <Dot color="red" />
               <Dot />
               <Dot color="green" />
             </Dots>
-            <TabsContainer>
-              {Array.isArray(tabs) &&
-                tabs.length > 0 &&
-                tabs.map((t, index) => {
-                  if (index === tab) {
-                    return (
-                      <Tab key={index} selected>
-                        {t?.icon && <Icon>{t.icon}</Icon>}
-                        <span>{t.name}</span>
-                      </Tab>
-                    );
-                  } else {
-                    return (
-                      <Tab key={index} onClick={() => setTab(index)}>
-                        {t?.icon && <Icon>{t.icon}</Icon>}
-                        <span>{t.name}</span>
-                      </Tab>
-                    );
-                  }
-                })}
-            </TabsContainer>
+            <IconsFlex>
+              {leftIcons}
+              {rightIcons}
+            </IconsFlex>
           </TitleRow>
-          <SearchRow>
-            <IconsFlex>{leftIcons}</IconsFlex>
-            <SearchBar>
-              {Array.isArray(tabs) && tabs.length > 0 && tabs[tab].link}
-            </SearchBar>
-            <IconsFlex>{rightIcons}</IconsFlex>
-          </SearchRow>
-        </Bar>
+          <SearchBar>
+            {Array.isArray(tabs) && tabs.length > 0 && tabs[tab].link}
+          </SearchBar>
+          <TabsContainer>
+            {Array.isArray(tabs) &&
+              tabs.length > 0 &&
+              tabs.map((t, index) => {
+                if (index === tab) {
+                  return (
+                    <TabContainer
+                      key={index}
+                      onClick={() => setTab(index)}
+                      selected
+                    >
+                      {t?.icon && <Icon>{t.icon}</Icon>}
+                      <span>{t.name}</span>
+                    </TabContainer>
+                  );
+                } else {
+                  return (
+                    <TabContainer key={index} onClick={() => setTab(index)}>
+                      {t?.icon && <Icon>{t.icon}</Icon>}
+                      <span>{t.name}</span>
+                    </TabContainer>
+                  );
+                }
+              })}
+          </TabsContainer>
+        </SideBar>
         <ContentContainer $contentScroll={contentScroll}>
           {Array.isArray(tabs) && tabs.length > 0 && tabs[tab].content}
           <div style={{ position: "absolute", top: "0" }}>{children}</div>

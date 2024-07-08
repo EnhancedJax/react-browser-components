@@ -4,7 +4,7 @@ import StorybookIcon from "../../../assets/storybook.svg?react";
 import Example from "./Example";
 
 const meta: Meta<typeof Example> = {
-  title: "ChromeBrowser",
+  title: "ArcBrowser",
   component: Example,
 };
 

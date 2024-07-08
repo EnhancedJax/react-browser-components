@@ -1,6 +1,16 @@
 # react-browser-containers
 
-React Browser "container" components library , with tabs functionality.
+React Browser "container" components library, with tabs functionality. The library currency provides two browser components: `ChromeBrowser` and `ArcBrowser`.
+
+![npm](https://img.shields.io/npm/v/@enhanced-jax/react-browser-containers)
+![GitHub license](https://img.shields.io/github/license/EnhancedJax/react-browser-containers)
+![npm bundle size](https://img.shields.io/bundlephobia/min/@enhanced-jax/react-browser-containers)
+
+|      ChromeBrowser       |      ArcBrowser       |
+| :----------------------: | :-------------------: |
+| ![](./images/chrome.jpg) | ![](./images/arc.jpg) |
+
+You can use the components to demonstrate functionality with browsers, or as decorative elements in your project. The components are not designed to be used as actual browsers.
 
 ## Basic Usage
 
@@ -29,20 +39,40 @@ const App = () => {
 
 ```js
 export type ChromeBrowserProps = {
-  theme?: "light" | "dark"; // theme of the browser, default is light
+  theme?: "light" | "dark"; // theme of the browser, default is light. The light and dark theme of ArcBrowser is the same.
   tabs?: Array<{ // pages in the browser
     name: string;
     link: string; // decorative link in the URL bar
     content: React.ReactNode; // content of the page
+    icon: React.ReactNode; // icon of the page. use w/h 100%.
+    // tip: get fav icon from any site using https://www.domain.com/favicon.ico
   }>;
   shadow?: boolean; // shadow of the browser, default is true
-  usecontentsize?: boolean; // default is false: browser will be the size of it's parent element. true: browser will be the size of it's content
+  useContentSize?: boolean; // default is false: browser will be the size of it's parent element. true: browser will be the size of it's content
+  contentScroll?: boolean; // if content inside the container should be scrollable, default is true
   leftIcons?: React.ReactNode; // leave empty for default icons
   rightIcons?: React.ReactNode; // leave empty for default icons
-  children?: React.ReactNode; // content displayed under all pages
+  lightTheme?: Theme; // changes the light theme of the browser
+  darkTheme?: Theme; // changes the dark theme of the browser
+  children?: React.ReactNode; // content displayed over all pages
   tab?: number;
   setTab?: (tab: number) => void;
 };
+```
+
+```js
+export default interface Theme {
+  theme: string;
+  bg: string;
+  contentBg: string;
+  text: string;
+  border: string;
+  searchBarBg: string;
+  tabBarBg: string;
+  tabDivider: string;
+  tabHoverBg: string;
+  tabSelectedBg: string;
+}
 ```
 
 ## Development
