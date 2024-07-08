@@ -1,6 +1,6 @@
 {
   "name": "@enhanced-jax/react-browser-containers",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "scripts": {
     "format": "prettier --write --parser typescript '**/*.{ts,tsx}'",
@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/EnhancedJax/react-browser-containers/issues"
   },
-  "homepage": "https://github.com/EnhancedJax/react-browser-containers#readme",
+  "homepage": "https://react-browser-containers.jaxtam.dev/",
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.1",
     "@storybook/addon-essentials": "^8.1.11",
