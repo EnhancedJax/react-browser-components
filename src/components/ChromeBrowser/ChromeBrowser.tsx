@@ -46,7 +46,7 @@ const ChromeBrowser: React.FC<BrowserProps> = ({
     },
   ],
   shadow = true,
-  useContentSize = true,
+  useContentSize = false,
   contentScroll = true,
   leftIcons = (
     <>
