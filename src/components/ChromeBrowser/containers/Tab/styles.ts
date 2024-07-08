@@ -1,25 +1,27 @@
 import styled from "styled-components";
 import Theme from "../../../types/BrowserTheme";
 
-export const TabContainer = styled.button`
+export const TabContainer = styled.button<{ selected?: boolean }>`
   margin-top: 4px;
+  margin-bottom: ${({ selected }) => (selected ? "0" : "4px")};
   text-align: left;
   border: none;
   color: ${({ theme }) => theme.text};
   display: flex;
   padding: 0;
-  align-items: baseline;
   background-color: transparent;
 `;
 
 export const TabBody = styled.div<{ selected?: boolean; theme: Theme }>`
   font-size: 10px;
-  padding: 8px 12px;
+  padding-left: 12px;
+  padding-right: 12px;
   position: relative;
   background-color: ${({ selected, theme }) =>
     selected ? theme.tabSelectedBg : theme.tabBarBg};
-  padding-bottom: ${({ selected }) => (selected ? "8px" : "4px")};
-  border-radius: ${({ selected }) => (selected ? "8px 8px 0 0" : "8px")};
+  padding-bottom: ${({ selected }) => (selected ? "10px" : "6px")};
+  padding-top: ${({ selected }) => (selected ? "6px" : "6px")};
+  border-radius: ${({ selected }) => (selected ? "8px 8px 0 0" : "6px")};
   width: 100px;
   text-overflow: ellipsis;
   display: flex;
@@ -28,6 +30,13 @@ export const TabBody = styled.div<{ selected?: boolean; theme: Theme }>`
   transition:
     background-color 0.3s,
     color 0.3s;
+  white-space: nowrap;
+  overflow: hidden;
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+  }
 
   &:hover {
     background-color: ${({ selected, theme }) =>
@@ -61,7 +70,7 @@ export const TabDecorator = styled.div<{
   margin-top: auto;
   opacity: ${({ selected }) => (selected ? "1" : "0")};
   background-color: ${({ theme }) => theme.tabSelectedBg};
-  margin-right: ${({ $after }) => ($after ? "-4px" : "0")};
+  margin-right: ${({ $after }) => ($after ? "-12px" : "0")};
   transition:
     background-color 0.3s,
     opacity 0.3s;

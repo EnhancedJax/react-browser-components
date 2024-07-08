@@ -8,7 +8,7 @@ const Tab: React.FC<TabProps> = ({
   ...props
 }) => {
   return (
-    <TabContainer {...props}>
+    <TabContainer selected={selected} {...props}>
       <TabDecorator $before selected={selected} />
       <TabBody selected={selected}>{children}</TabBody>
       <TabDecorator $after selected={selected} />

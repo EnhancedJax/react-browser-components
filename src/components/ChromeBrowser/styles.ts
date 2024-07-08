@@ -93,6 +93,15 @@ export const TitleRow = styled.div`
 export const TabsContainer = styled.div`
   flex-grow: 1;
   display: flex;
+  align-items: end;
+`;
+
+export const Icon = styled.div`
+  width: 12px;
+  max-width: 12px;
+  height: 12px;
+  max-height: 12px;
+  overflow: hidden;
 `;
 
 export const SearchRow = styled.div<{ theme: Theme }>`
@@ -131,7 +140,7 @@ export const ContentContainer = styled.div<{
 }>`
   background-color: ${({ theme }) => theme.contentBg};
   width: 100%;
-  overflow: ${({ $contentScroll }) => ($contentScroll ? "scroll" : "hidden")};
+  overflow: ${({ $contentScroll }) => ($contentScroll ? "auto" : "hidden")};
   position: relative;
   height: 100%;
 `;

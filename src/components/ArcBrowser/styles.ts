@@ -61,7 +61,7 @@ export const ContentContainer = styled.div<{
   border-radius: 6px;
   width: 100%;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
-  overflow: ${({ $contentScroll }) => ($contentScroll ? "scroll" : "hidden")};
+  overflow: ${({ $contentScroll }) => ($contentScroll ? "auto" : "hidden")};
   position: relative;
 `;
 
@@ -71,6 +71,7 @@ export const SideBar = styled.div`
   flex-direction: column;
   gap: 8px;
   padding: 2px;
+  max-width: 130px;
 `;
 
 export const Dot = styled.div<{ theme: Theme }>`
@@ -94,16 +95,23 @@ export const TitleRow = styled.div`
 
 export const TabsContainer = styled.div`
   flex-grow: 1;
-  font-size: 14px;
+  width: 100%;
+`;
+
+export const Icon = styled.div`
+  width: 14px;
+  max-width: 14px;
+  height: 14px;
+  max-height: 14px;
+  overflow: hidden;
 `;
 
 export const TabContainer = styled.button<{ selected?: boolean; theme: Theme }>`
   padding: 8px;
   border-radius: 10px;
   border: none;
-  max-width: 120px;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  font-size: 14px;
+  width: 100%;
   color: ${({ theme }) => theme.text};
   background-color: ${({ selected, theme }) =>
     selected ? theme.tabSelectedBg : "transparent"};
@@ -115,10 +123,17 @@ export const TabContainer = styled.button<{ selected?: boolean; theme: Theme }>`
       selected ? theme.tabSelectedBg : theme.tabHoverBg};
   }
   margin-bottom: 4px;
-  width: 100%;
   text-align: left;
   display: flex;
+  align-items: center;
   gap: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+  }
 `;
 
 export const SearchBar = styled.div<{ theme: Theme }>`
@@ -127,7 +142,6 @@ export const SearchBar = styled.div<{ theme: Theme }>`
   border-radius: 10px;
   font-size: 12px;
   transition: background-color 0.3s;
-  max-width: 120px;
   text-overflow: ellipsis;
   overflow: hidden;
   margin-bottom: 4px;

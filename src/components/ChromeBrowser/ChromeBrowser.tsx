@@ -13,6 +13,7 @@ import {
   ContentContainer,
   Dot,
   Dots,
+  Icon,
   IconsFlex,
   SearchBar,
   SearchRow,
@@ -41,7 +42,7 @@ const ChromeBrowser: React.FC<BrowserProps> = ({
           Hello 👋
         </div>
       ),
-      icon: <StorybookIcon width={12} height={12} />,
+      icon: <StorybookIcon width="100%" height="100%" />,
     },
   ],
   shadow = true,
@@ -89,15 +90,15 @@ const ChromeBrowser: React.FC<BrowserProps> = ({
                   if (index === tab) {
                     return (
                       <Tab key={index} selected>
-                        {t?.icon}
-                        {t.name}
+                        {t?.icon && <Icon>{t.icon}</Icon>}
+                        <span>{t.name}</span>
                       </Tab>
                     );
                   } else {
                     return (
                       <Tab key={index} onClick={() => setTab(index)}>
-                        {t?.icon}
-                        {t.name}
+                        {t?.icon && <Icon>{t.icon}</Icon>}
+                        <span>{t.name}</span>
                       </Tab>
                     );
                   }

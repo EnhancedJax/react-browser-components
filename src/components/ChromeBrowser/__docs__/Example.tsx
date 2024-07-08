@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import BrowserProps from "../../types/BrowserProp";
+import BrowserProps from "../../types/BrowserProps";
 import ChromeBrowser from "../ChromeBrowser";
 
 const Example: FC<BrowserProps> = ({
