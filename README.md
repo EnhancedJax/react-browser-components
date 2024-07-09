@@ -1,14 +1,14 @@
-# 🪟 react-browser-containers ✨
+# 🪟 react-browser-components ✨
 
-Customizable browser-like containers, with tabs functionality (React).
+React component for browser-windows like containers, with tabs functionality.
 
 ```bash
-npm i @enhanced-jax/react-browser-containers
+npm i @enhanced-jax/react-browser-components
 ```
 
-![npm](https://img.shields.io/npm/v/@enhanced-jax/react-browser-containers)
-![GitHub license](https://img.shields.io/github/license/EnhancedJax/react-browser-containers)
-![npm bundle size](https://img.shields.io/bundlephobia/min/@enhanced-jax/react-browser-containers)
+![npm](https://img.shields.io/npm/v/@enhanced-jax/react-browser-components)
+![GitHub license](https://img.shields.io/github/license/EnhancedJax/react-browser-components)
+![npm bundle size](https://img.shields.io/bundlephobia/min/@enhanced-jax/react-browser-components)
 
 | ![](./images/chrome.png) ChromeBrowser | ![](./images/arc.png) ArcBrowser |
 | :------------------------------------: | :------------------------------: |
@@ -22,7 +22,7 @@ You can use the components to demonstrate functionality with browsers, or as dec
 import {
   ChromeBrowser,
   ArcBrowser,
-} from "@enhanced-jax/react-browser-containers";
+} from "@enhanced-jax/react-browser-components";
 import { useState } from "react";
 
 const App = () => {
@@ -88,8 +88,8 @@ export default interface Theme {
 To get started:
 
 ```bash
-git clone https://github.com/EnhancedJax/react-browser-containers.git
-cd react-browser-containers
+git clone https://github.com/EnhancedJax/react-browser-components.git
+cd react-browser-components
 npm i
 ```
 
@@ -108,5 +108,5 @@ npm run build
 npm link
 npm link "../your-project/node_modules/react"
 cd ../your-project
-npm link @enhanced-jax/react-browser-containers
+npm link @enhanced-jax/react-browser-components
 ```

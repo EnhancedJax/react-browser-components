@@ -13,7 +13,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: "./src/index.ts",
-      name: "react-browser-containers",
+      name: "react-browser-components",
       fileName: (format) => `index.${format}.js`,
       formats: ["cjs", "es"],
     },
