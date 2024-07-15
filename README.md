@@ -3,12 +3,12 @@
 React component for browser-windows like containers, with tabs functionality.
 
 ```bash
-npm i @enhanced-jax/react-browser-components
+npm i react-browser-components
 ```
 
-![npm](https://img.shields.io/npm/v/@enhanced-jax/react-browser-components)
+![npm](https://img.shields.io/npm/v/react-browser-components)
 ![GitHub license](https://img.shields.io/github/license/EnhancedJax/react-browser-components)
-![npm bundle size](https://img.shields.io/bundlephobia/min/@enhanced-jax/react-browser-components)
+![npm bundle size](https://img.shields.io/bundlephobia/min/react-browser-components)
 
 | ![](./images/chrome.png) ChromeBrowser | ![](./images/arc.png) ArcBrowser |
 | :------------------------------------: | :------------------------------: |
@@ -19,10 +19,7 @@ You can use the components to demonstrate functionality with browsers, or as dec
 ## Basic Usage
 
 ```jsx
-import {
-  ChromeBrowser,
-  ArcBrowser,
-} from "@enhanced-jax/react-browser-components";
+import { ChromeBrowser, ArcBrowser } from "react-browser-components";
 import { useState } from "react";
 
 const App = () => {
@@ -108,5 +105,5 @@ npm run build
 npm link
 npm link "../your-project/node_modules/react"
 cd ../your-project
-npm link @enhanced-jax/react-browser-components
+npm link react-browser-components
 ```
